@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-kg8@^8a)-h!ma3zh8w98dwlq7bv-)otiznqa@j@#=_*k=kxw70
 DEBUG = True
 
 ALLOWED_HOSTS = []
+ALLOWED_HOSTS =['psusphere.pythonanywhere.com','127.0.0.1']
 
 
 # Application definition
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'studentorg',
+    "widget_tweaks",
 ]
 
 MIDDLEWARE = [
@@ -123,4 +125,4 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-ALLOWED_HOSTS = ['psusphere.pythonanywhere.com', '127.0.0.1']
+
