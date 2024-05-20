@@ -60,6 +60,16 @@ class HomePageView(ListView):
     context_object_name = 'home'
     template_name = "home.html"
 
+class ChartView(ListView):
+    template_name = 'chart.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+    def get_queryset(self, *args, **kwargs):
+        pass
+
 class organizationList(ListView):
     model=Organization
     context_object_name = 'organizations'
@@ -72,8 +82,7 @@ class organizationList(ListView):
             query = self.request.GET.get("q")
             qs = qs.filter(Q(name__icontains=query)|Q(description__icontains=query))
         return qs
-
-
+    
 def forms_view(request):
     return render(request, 'forms.html', {})
 

@@ -17,12 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path
 from studentorg.views import HomePageView, organizationList,OrganizationCreateView, OrganizationUpdateView, OrganizationDeleteView,StudentList, CollegeList
+from fire.views import HomePageView, ChartView
 from studentorg import views
 from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.HomePageView.as_view(), name='Home'),
+    path('dashboard_chart', ChartView.as_view(), name='dashboard-chart'),
     path('forms.html', views.forms_view, name='forms'),
     path('organization_list', organizationList.as_view(), name='organization-list'),
     path('organization_list/add', OrganizationCreateView.as_view(), name='organization-add'),
