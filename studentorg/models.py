@@ -30,11 +30,11 @@ class Organization(BaseModel):
     
 
 class Student(BaseModel):
-    student_id = models.CharField(max_length=15)  # Corrected from max_lenght to max_length
+    student_id = models.CharField(max_length=15)  # Binago mula sa max_lenght papunta sa max_length
     lastname = models.CharField(max_length=25)
     firstname = models.CharField(max_length=25)
     middlename = models.CharField(max_length=25, blank=True, null=True)
-    Program = models.ForeignKey(Program, on_delete=models.CASCADE)
+    program = models.ForeignKey(Program, on_delete=models.CASCADE)  # Inayos ang pangalan ng field
 
     def __str__(self):
         return f"{self.lastname}, {self.firstname}"
@@ -43,4 +43,13 @@ class Student(BaseModel):
 class OrgMember(BaseModel):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     organization = models.ForeignKey(Organization, on_delete=models.CASCADE)
-    date_joined = models.DateField
+    date_joined = models.DateField()
+
+
+class Incident(models.Model):
+    severity_level = models.CharField(max_length=50)
+    date_time = models.DateTimeField()
+    location = models.ForeignKey('Location', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.severity_level} - {self.date_time}"

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from studentorg.models import Organization, Student, College
+from studentorg.models import Organization, Student, College, Incident 
 from studentorg.forms import OrganizationForm
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
@@ -9,6 +9,9 @@ from django.contrib.auth.decorators import login_required
 from django.db import connection
 from django.http import JsonResponse
 from django.db.models import Q
+
+
+
 
 # College
 class CollegeList(ListView):
@@ -231,3 +234,4 @@ def multipleBarbySeverity(request):
         result[level] = dict(sorted(result[level].items()))
 
     return JsonResponse(result)
+
