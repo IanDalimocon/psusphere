@@ -17,7 +17,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path
 from studentorg.views import HomePageView, OrganizationList,OrganizationCreateView, OrganizationUpdateView, OrganizationDeleteView,StudentList, CollegeList
-from fire.views import HomePageView, ChartView, PieCountbySeverity, LineCountbyMonth, MultilineIncidentTop3Country, multipleBarbySeverity
 from studentorg import views
 from django.contrib.auth import views as auth_views
 
