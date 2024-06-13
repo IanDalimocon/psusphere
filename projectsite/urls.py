@@ -25,11 +25,6 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.HomePageView.as_view(), name='Home'),
-    path('dashboard_chart', ChartView.as_view(), name='dashboard-chart'),
-    path('lineChart/', LineCountbyMonth, name='chart'),
-    path('multilineChart/', MultilineIncidentTop3Country, name='chart'),
-    path('multiBarChart/', multipleBarbySeverity, name='chart'),
-    path('chart/', PieCountbySeverity, name='chart'),
     path('forms.html', views.forms_view, name='forms'),
     path('organization_list', OrganizationList.as_view(), name='organization-list'),
     path('organization_list/add', OrganizationCreateView.as_view(), name='organization-add'),
